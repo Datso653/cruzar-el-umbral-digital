@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Material de respaldo · Green Thunder · MIT LIFT Lab</title>
+<meta name="description" content="Material de respaldo de la presentación del Equipo Green Thunder: datos, decisiones metodológicas y preguntas difíciles.">
+<!--
+  Material de respaldo (para las preguntas). Lo que Sofi sugirió sacar de la
+  presentación principal vive acá: mapa, participación y web, curva en S, motivos para
+  no tener crédito, panel y trabajo futuro; más las 8 preguntas difíciles y las
+  decisiones metodológicas que pidió el taller. armar.py inserta las celdas del mapa.
+-->
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link rel="stylesheet" href="deck.css">
+</head>
+<body>
+<div class="deck" id="deck" tabindex="0" data-prefijo="R">
+<div class="progress"><i id="progFill"></i></div>
+<canvas id="chispas" width="1600" height="900" aria-hidden="true"></canvas>
+
+<!-- ============ R1 · ÍNDICE ============ -->
+<div class="slide slide--paper active" id="slide-1">
+  <div class="blob blob--mint" style="width:360px;height:360px;right:-120px;top:-150px"></div>
+  <span class="pill pill--ink">Material de respaldo</span>
+  <h1 class="slide-title" style="margin-top:22px">Para las preguntas</h1>
+  <div class="ridx">
+    <a href="#2"><b>R2</b>Dónde estuvimos</a>
+    <a href="#3"><b>R3</b>La participación y la web</a>
+    <a href="#4"><b>R4</b>¿Por qué Logit y Probit?</a>
+    <a href="#5"><b>R5</b>Motivos para no tener crédito</a>
+    <a href="#6"><b>R6</b>El panel, seis meses después</a>
+    <a href="#7"><b>R7</b>Trabajo futuro</a>
+    <a href="#8"><b>R8</b>Preguntas difíciles 1–4</a>
+    <a href="#9"><b>R9</b>Preguntas difíciles 5–8</a>
+    <a href="#10"><b>R10</b>Decisiones metodológicas</a>
+  </div>
+  <a class="linkpill" href="index.html#14" style="align-self:flex-start">← Volver a la presentación</a>
+  <div class="footer">Green Thunder · MIT LIFT Lab · Material de respaldo</div>
+</div>
+
+<!-- ============ R2 · MAPA ============ -->
+<div class="slide slide--paper" id="slide-2">
+  <span class="pill pill--lime">Respaldo · la muestra</span>
+  <h2 class="slide-title" style="font-size:46px;margin-bottom:24px">Dónde estuvimos</h2>
+  <div class="mapgrid">
+    <div id="mapa"></div>
+    <div class="map-side">
+      <div class="datum pop" style="--delay:.2s">
+        <div class="datum-big"><span data-count="385">385</span></div>
+        <div class="datum-txt">de los 998 comercios tienen <b>ubicación registrada</b></div>
+      </div>
+      <div class="legend fade" style="--delay:.5s"><i style="width:16px;height:16px"></i> pocos comercios</div>
+      <div class="legend fade" style="--delay:.6s"><i style="width:44px;height:44px"></i> muchos comercios</div>
+      <p class="slide-note fade" style="--delay:.7s;margin-top:0"><b>¿Qué aporta la ubicación?</b> Muestra de dónde sale la muestra: se concentra alrededor de la Ciudad de Buenos Aires y en el sur del conurbano. No es representativa de todo el AMBA.</p>
+      <p class="slide-note fade" style="--delay:.8s;margin-top:0;font-size:16px">Celdas de ~1,5 km; solo se muestran las que tienen 3 o más comercios, para no identificar a nadie.</p>
+    </div>
+  </div>
+  <div class="footer">Green Thunder · MIT LIFT Lab · Respaldo · Mapa</div>
+</div>
+
+<!-- ============ R3 · LA PARTICIPACIÓN (ciclo) ============ -->
+<div class="slide slide--forest" id="slide-3">
+  <div class="cols" style="grid-template-columns:1fr 640px">
+    <div>
+      <span class="pill pill--lime">Respaldo · trabajo de campo</span>
+      <h2 class="slide-title" style="margin-top:24px">La participación<br>caía mes a mes</h2>
+      <p class="lede fade" style="--delay:.3s;color:#D7E8DE">La pérdida de participantes limita lo que se puede concluir del seguimiento. Muchos comerciantes desconfiaban de para qué usábamos sus datos.</p>
+      <p class="lede fade" style="--delay:.5s;margin-top:22px">Armamos una <b style="color:var(--lime)">web que les devuelve los resultados</b> en lenguaje simple: una forma de reciprocidad que vale para futuras ediciones.</p>
+    </div>
+    <svg viewBox="0 0 620 560" width="100%" style="overflow:visible">
+      <defs><marker id="flecha" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+        <path d="M0,0 L10,5 L0,10 z" fill="#C9F24D"/></marker></defs>
+      <circle cx="310" cy="280" r="210" fill="none" stroke="#2C5A47" stroke-width="2" stroke-dasharray="4 8"/>
+      <path class="draw" pathLength="1" style="--delay:.5s;--dur:.6s" d="M408.6,94.6 A210,210 0 0 1 495.4,181.4" fill="none" stroke="#C9F24D" stroke-width="5" marker-end="url(#flecha)"/>
+      <path class="draw" pathLength="1" style="--delay:1s;--dur:.6s" d="M495.4,378.6 A210,210 0 0 1 408.6,465.4" fill="none" stroke="#C9F24D" stroke-width="5" marker-end="url(#flecha)"/>
+      <path class="draw" pathLength="1" style="--delay:1.5s;--dur:.6s" d="M211.4,465.4 A210,210 0 0 1 124.6,378.6" fill="none" stroke="#C9F24D" stroke-width="5" marker-end="url(#flecha)"/>
+      <path class="draw" pathLength="1" style="--delay:2s;--dur:.6s" d="M124.6,181.4 A210,210 0 0 1 211.4,94.6" fill="none" stroke="#C9F24D" stroke-width="5" marker-end="url(#flecha)"/>
+      <circle r="9" fill="#C9F24D"><animateMotion dur="7s" repeatCount="indefinite" path="M310,70 A210,210 0 1,1 309.9,70"/></circle>
+      <g class="node" style="--delay:2.1s"><circle cx="310" cy="280" r="74" fill="#C9F24D" stroke="#14201A" stroke-width="3"/>
+        <text x="310" y="276" text-anchor="middle" font-size="22" font-weight="700" fill="#14201A">recipro-</text>
+        <text x="310" y="302" text-anchor="middle" font-size="22" font-weight="700" fill="#14201A">cidad</text></g>
+      <g text-anchor="middle" font-size="21" font-weight="700">
+        <g class="node" style="--delay:.2s"><rect x="205" y="32" width="210" height="76" rx="14" fill="#FFFFFF" stroke="#14201A" stroke-width="2.5"/>
+          <text x="310" y="64" fill="#14201A">Encuesta</text><text x="310" y="90" fill="#14201A">mensual</text></g>
+        <g class="node" style="--delay:.75s"><rect x="410" y="242" width="220" height="76" rx="14" fill="#F0A8B4" stroke="#14201A" stroke-width="2.5"/>
+          <text x="520" y="274" fill="#14201A">Cae la</text><text x="520" y="300" fill="#14201A">participación</text></g>
+        <g class="node" style="--delay:1.25s"><rect x="200" y="452" width="220" height="76" rx="14" fill="#FFFFFF" stroke="#14201A" stroke-width="2.5"/>
+          <text x="310" y="484" fill="#14201A">¿Qué hacen con</text><text x="310" y="510" fill="#14201A">mis datos?</text></g>
+        <g class="node" style="--delay:1.75s"><rect x="-15" y="242" width="230" height="76" rx="14" fill="#C9F24D" stroke="#14201A" stroke-width="2.5"/>
+          <text x="100" y="274" fill="#14201A">Web que devuelve</text><text x="100" y="300" fill="#14201A">los resultados</text></g>
+      </g>
+    </svg>
+  </div>
+  <div class="footer">Green Thunder · MIT LIFT Lab · Respaldo · Participación</div>
+</div>
+
+<!-- ============ R4 · POR QUÉ LOGIT Y PROBIT (curva en S) ============ -->
+<div class="slide slide--paper" id="slide-4">
+  <span class="pill pill--lime">Respaldo · el método</span>
+  <h2 class="slide-title" style="font-size:46px">¿Por qué Logit y Probit?</h2>
+  <div class="cols" style="grid-template-columns:1fr 470px;gap:50px">
+    <svg viewBox="0 0 760 470" width="100%" style="overflow:visible">
+      <line x1="70" y1="410" x2="730" y2="410" stroke="#14201A" stroke-width="2.5"/>
+      <line x1="70" y1="410" x2="70" y2="50" stroke="#14201A" stroke-width="2.5"/>
+      <text x="58" y="74" text-anchor="end" font-size="17" fill="#66736B">100%</text>
+      <text x="58" y="414" text-anchor="end" font-size="17" fill="#66736B">0%</text>
+      <line x1="70" y1="70" x2="730" y2="70" stroke="#C9D3C4" stroke-width="1.5" stroke-dasharray="5 6"/>
+      <text x="400" y="452" text-anchor="middle" font-size="18" fill="#66736B">características del comercio →</text>
+      <text transform="translate(26 240) rotate(-90)" text-anchor="middle" font-size="18" fill="#66736B">probabilidad de adopción alta</text>
+      <path id="curvaS" class="draw" pathLength="1" style="--delay:.2s;--dur:1.6s" fill="none" stroke="#14201A" stroke-width="5" stroke-linecap="round" d=""/>
+      <g class="node" style="--delay:1.4s"><circle cx="323.7" cy="343.7" r="13" fill="#FFFFFF" stroke="#14201A" stroke-width="3"/>
+        <text x="342" y="392" font-size="20" font-weight="700" fill="#14201A">sin crédito</text></g>
+      <g class="node" style="--delay:1.6s"><circle cx="368.9" cy="305.6" r="13" fill="#C9F24D" stroke="#14201A" stroke-width="3"/>
+        <text x="352" y="276" text-anchor="end" font-size="20" font-weight="700" fill="#14201A">con crédito</text></g>
+      <g class="fade" style="--delay:1.85s">
+        <path d="M398,305.6 L410,305.6 L410,343.7 L398,343.7" fill="none" stroke="#14201A" stroke-width="2.5"/>
+        <rect x="422" y="300" width="118" height="50" rx="12" fill="#C9F24D" stroke="#14201A" stroke-width="2.5"/>
+        <text x="481" y="334" text-anchor="middle" font-size="27" font-weight="700" fill="#14201A">+11 pp</text></g>
+    </svg>
+    <div style="display:flex;flex-direction:column;gap:18px">
+      <div class="card pop" style="--delay:.3s;padding:24px 26px"><div class="card-k">La pregunta</div><div class="card-title" style="font-size:25px">Es de sí o no</div>
+        <div class="card-body" style="font-size:19px">¿El comercio llegó, o no, a la adopción alta?</div></div>
+      <div class="card card--lime pop" style="--delay:.5s;padding:24px 26px"><div class="card-k">La curva en S</div><div class="card-title" style="font-size:25px">Acota la probabilidad</div>
+        <div class="card-body" style="font-size:19px">Nunca baja de 0 ni pasa de 100 %, algo que el modelo lineal no garantiza.</div></div>
+      <div class="card pop" style="--delay:.7s;padding:24px 26px"><div class="card-k">Verificación</div><div class="card-title" style="font-size:25px">El modelo lineal da lo mismo</div>
+        <div class="card-body" style="font-size:19px">Lo estimamos igual: el crédito sigue siendo positivo y significativo.</div></div>
+    </div>
+  </div>
+  <div class="footer">Green Thunder · MIT LIFT Lab · Respaldo · Método</div>
+</div>
+
+<!-- ============ R5 · MOTIVOS PARA NO TENER CRÉDITO (evidencia secundaria) ============ -->
+<div class="slide slide--paper" id="slide-5">
+  <span class="pill pill--lime">Respaldo · evidencia secundaria</span>
+  <h2 class="slide-title" style="font-size:42px">Adopción alta según el motivo<br>para no tener crédito bancario</h2>
+  <div class="center-block">
+    <div class="bars" style="gap:38px">
+      <div class="bar-row" style="grid-template-columns:360px 1fr 130px"><div class="bar-lab">«No lo necesito»<small>492 comercios</small></div>
+        <div class="bar-track" style="height:62px"><span class="bar-fill" style="--w:96.5%;--delay:.3s"></span></div><div class="bar-val">19,3%</div></div>
+      <div class="bar-row" style="grid-template-columns:360px 1fr 130px"><div class="bar-lab">«Las tasas son muy altas»<small>179 comercios</small></div>
+        <div class="bar-track" style="height:62px"><span class="bar-fill bar-fill--mint" style="--w:77%;--delay:.5s"></span></div><div class="bar-val">15,4%</div></div>
+      <div class="bar-row" style="grid-template-columns:360px 1fr 130px"><div class="bar-lab">Rechazo, garantías o trámites<small>86 comercios</small></div>
+        <div class="bar-track" style="height:62px"><span class="bar-fill bar-fill--gray" style="--w:59%;--delay:.7s"></span></div><div class="bar-val">11,8%</div></div>
+    </div>
+  </div>
+  <div class="strip fade" style="--delay:1s"><b>Cómo leerlo:</b> describe los motivos declarados y la adopción de cada grupo. Los porcentajes por sí solos no demuestran que las barreras de acceso al crédito produzcan menor adopción.</div>
+  <div class="footer">Green Thunder · MIT LIFT Lab · Respaldo · Motivos</div>
+</div>
+
+<!-- ============ R6 · EL PANEL (flujos) ============ -->
+<div class="slide slide--paper" id="slide-6">
+  <span class="pill pill--lime">Respaldo · exploratorio · 190 comercios</span>
+  <h2 class="slide-title" style="font-size:46px">El panel, seis meses después</h2>
+  <div class="cols" style="grid-template-columns:1fr 430px;gap:40px">
+    <svg viewBox="0 0 780 500" width="100%" style="overflow:visible">
+      <text x="162" y="30" text-anchor="middle" font-size="17" font-weight="700" fill="#66736B" letter-spacing="1.5">OCTUBRE 2025</text>
+      <text x="618" y="30" text-anchor="middle" font-size="17" font-weight="700" fill="#66736B" letter-spacing="1.5">ÚLTIMO MES</text>
+      <g fill="none" stroke-linecap="butt">
+        <path class="draw" pathLength="1" style="--delay:.4s;--dur:1.3s" d="M174,221 C390,221 390,219 606,219" stroke="#B9C3B4" stroke-opacity=".75" stroke-width="254"/>
+        <path class="draw" pathLength="1" style="--delay:.55s;--dur:1.3s" d="M174,458 C390,458 390,456 606,456" stroke="#B9C3B4" stroke-opacity=".75" stroke-width="60"/>
+        <path class="draw" pathLength="1" style="--delay:.9s;--dur:1.3s" d="M174,360 C390,360 390,414 606,414" stroke="#C9F24D" stroke-width="24"/>
+        <path class="draw" pathLength="1" style="--delay:1s;--dur:1.3s" d="M174,56 C390,56 390,90 606,90" stroke="#C9F24D" stroke-width="4"/>
+        <path class="draw" pathLength="1" style="--delay:1.1s;--dur:1.3s" d="M174,413 C390,413 390,361 606,361" stroke="#F0A8B4" stroke-opacity=".95" stroke-width="30"/>
+        <path class="draw" pathLength="1" style="--delay:1.2s;--dur:1.3s" d="M174,90 C390,90 390,58 606,58" stroke="#F0A8B4" stroke-opacity=".95" stroke-width="8"/>
+      </g>
+      <g stroke="#14201A" stroke-width="2">
+        <rect class="rise" style="--delay:.1s" x="150" y="52" width="24" height="8" fill="#FFFFFF"/>
+        <rect class="rise" style="--delay:.15s" x="150" y="86" width="24" height="286" fill="#9ED9B9"/>
+        <rect class="rise" style="--delay:.2s" x="150" y="398" width="24" height="90" fill="#10382A"/>
+        <rect class="rise" style="--delay:.1s" x="606" y="54" width="24" height="8" fill="#FFFFFF"/>
+        <rect class="rise" style="--delay:.15s" x="606" y="88" width="24" height="288" fill="#9ED9B9"/>
+        <rect class="rise" style="--delay:.2s" x="606" y="402" width="24" height="84" fill="#10382A"/>
+      </g>
+      <g font-size="19" font-weight="700" fill="#14201A">
+        <text x="138" y="62" text-anchor="end">Ninguno · 2</text><text x="138" y="236" text-anchor="end">Intermedio · 143</text><text x="138" y="450" text-anchor="end">Alto · 45</text>
+        <text x="642" y="64">Ninguno · 4</text><text x="642" y="238">Intermedio · 144</text><text x="642" y="450">Alto · 42</text>
+      </g>
+    </svg>
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <div class="legend pop" style="--delay:.9s;font-size:22px"><i style="width:28px;height:28px;border-radius:6px;background:#B9C3B4"></i><b><span data-count="157">157</span></b>&nbsp;se mantuvieron</div>
+      <div class="legend pop" style="--delay:1s;font-size:22px"><i style="width:28px;height:28px;border-radius:6px;background:var(--lime)"></i><b><span data-count="14">14</span></b>&nbsp;subieron</div>
+      <div class="legend pop" style="--delay:1.1s;font-size:22px"><i style="width:28px;height:28px;border-radius:6px;background:var(--pink)"></i><b><span data-count="19">19</span></b>&nbsp;bajaron</div>
+      <div class="card pop" style="--delay:1.5s;padding:22px 24px;margin-top:14px;gap:10px">
+        <span class="pill pill--red">Hipótesis · grupos pequeños</span>
+        <div class="card-body" style="font-size:19px"><b>¿Quién se sostuvo arriba?</b> De los que ya estaban en nivel alto se mantuvieron <b>8 de 8</b> con crédito, frente a <b>22 de 37</b> sin crédito. Con tan pocos casos no se puede afirmar.</div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">Green Thunder · MIT LIFT Lab · Respaldo · Panel</div>
+</div>
+
+<!-- ============ R7 · TRABAJO FUTURO ============ -->
+<div class="slide slide--paper" id="slide-7">
+  <span class="pill pill--lime">Respaldo · trabajo futuro</span>
+  <h2 class="slide-title" style="font-size:46px">Qué le sumaríamos al relevamiento</h2>
+  <div class="center-block">
+    <svg viewBox="0 0 1340 300" width="100%" style="overflow:visible">
+      <line class="draw" pathLength="1" x1="140" y1="100" x2="1200" y2="100" stroke="#14201A" stroke-width="4" stroke-linecap="round"/>
+      <g text-anchor="middle">
+        <g class="node" style="--delay:.4s"><circle cx="140" cy="100" r="46" fill="#C9F24D" stroke="#14201A" stroke-width="3.5"/><text x="140" y="114" font-size="36" font-weight="700" fill="#14201A">IA</text>
+          <text x="140" y="192" font-size="27" font-weight="700" fill="#14201A">Medir la IA</text><text x="140" y="228" font-size="20" fill="#66736B">como categoría propia,</text><text x="140" y="254" font-size="20" fill="#66736B">con una escala por etapas</text></g>
+        <g class="node" style="--delay:.65s"><circle cx="493" cy="100" r="46" fill="#FFFFFF" stroke="#14201A" stroke-width="3.5"/><text x="493" y="114" font-size="36" font-weight="700" fill="#14201A">2</text>
+          <text x="493" y="192" font-size="27" font-weight="700" fill="#14201A">Conocer al cliente</text><text x="493" y="228" font-size="20" fill="#66736B">sin demanda, no adoptar</text><text x="493" y="254" font-size="20" fill="#66736B">no es un problema</text></g>
+        <g class="node" style="--delay:.9s"><circle cx="846" cy="100" r="46" fill="#9ED9B9" stroke="#14201A" stroke-width="3.5"/><text x="846" y="114" font-size="36" font-weight="700" fill="#14201A">3</text>
+          <text x="846" y="192" font-size="27" font-weight="700" fill="#14201A">Panel más largo</text><text x="846" y="228" font-size="20" fill="#66736B">la tecnología se mueve</text><text x="846" y="254" font-size="20" fill="#66736B">en más de seis meses</text></g>
+        <g class="node" style="--delay:1.15s"><circle cx="1200" cy="100" r="46" fill="#10382A" stroke="#14201A" stroke-width="3.5"/><text x="1200" y="114" font-size="36" font-weight="700" fill="#C9F24D">4</text>
+          <text x="1200" y="192" font-size="27" font-weight="700" fill="#14201A">Ubicar a todos</text><text x="1200" y="228" font-size="20" fill="#66736B">hoy: 385 de 998</text><text x="1200" y="254" font-size="20" fill="#66736B">comercios</text></g>
+      </g>
+    </svg>
+  </div>
+  <div class="footer">Green Thunder · MIT LIFT Lab · Respaldo · Trabajo futuro</div>
+</div>
+
+<!-- ============ R8 · PREGUNTAS DIFÍCILES 1–4 ============ -->
+<div class="slide slide--paper" id="slide-8">
+  <span class="pill pill--lime">Respaldo · preguntas difíciles</span>
+  <h2 class="slide-title" style="font-size:42px;margin-bottom:18px">Lo que nos pueden preguntar (1 de 2)</h2>
+  <div class="qq">
+    <div class="card pop" style="--delay:.1s"><div class="qq-q"><i>1</i>¿El crédito causa la adopción?</div>
+      <div class="qq-a">No podemos afirmarlo. Con datos observacionales medimos asociación: comparamos comercios parecidos, pero puede haber factores que no vemos, como la gestión del dueño. Probamos un instrumento y efectos fijos, y ninguno permitió identificar causalidad.</div></div>
+    <div class="card pop" style="--delay:.2s"><div class="qq-q"><i>2</i>¿No podría ser al revés?</div>
+      <div class="qq-a">Es plausible: un comercio con cobros digitales tiene ventas registradas y le resulta más fácil conseguir crédito bancario. Por eso hablamos de asociación y no de efecto del crédito.</div></div>
+    <div class="card pop" style="--delay:.3s"><div class="qq-q"><i>3</i>¿Por qué Logit y Probit y no un modelo lineal?</div>
+      <div class="qq-a">La variable es de sí o no. El modelo lineal puede predecir probabilidades menores que 0 o mayores que 100 %; Logit y Probit no. Igual lo estimamos como verificación y da el mismo signo y significancia.</div></div>
+    <div class="card pop" style="--delay:.4s"><div class="qq-q"><i>4</i>¿El resultado depende de los controles?</div>
+      <div class="qq-a">No. El efecto del crédito se mantiene entre 11 y 12 puntos con distintos controles, y se repite con Probit, con el modelo lineal y con logit ordenado y multinomial.</div></div>
+  </div>
+  <div class="footer">Green Thunder · MIT LIFT Lab · Respaldo · Preguntas difíciles</div>
+</div>
+
+<!-- ============ R9 · PREGUNTAS DIFÍCILES 5–8 ============ -->
+<div class="slide slide--paper" id="slide-9">
+  <span class="pill pill--lime">Respaldo · preguntas difíciles</span>
+  <h2 class="slide-title" style="font-size:42px;margin-bottom:18px">Lo que nos pueden preguntar (2 de 2)</h2>
+  <div class="qq">
+    <div class="card pop" style="--delay:.1s"><div class="qq-q"><i>5</i>¿Por qué juntaron básico y moderado?</div>
+      <div class="qq-a">Porque es una autoclasificación y la frontera entre ambos es difusa para quien responde. Juntarlos reduce el error de medición, y el margen que nos interesa es llegar al nivel alto.</div></div>
+    <div class="card pop" style="--delay:.2s"><div class="qq-q"><i>6</i>¿Se puede confiar en una tecnología autodeclarada?</div>
+      <div class="qq-a">Es una limitación: puede haber sobre o subdeclaración. La acotamos con niveles definidos por ejemplos concretos —QR, punto de venta, inventario— y la dejamos explícita.</div></div>
+    <div class="card pop" style="--delay:.3s"><div class="qq-q"><i>7</i>¿Qué pasa con los que dejaron de responder?</div>
+      <div class="qq-a">La participación cayó mes a mes, así que los 190 comercios del panel no son una muestra al azar de los 998. Por eso el análisis en el tiempo es exploratorio y no sostiene ninguna conclusión central.</div></div>
+    <div class="card pop" style="--delay:.4s"><div class="qq-q"><i>8</i>¿Se puede generalizar?</div>
+      <div class="qq-a">No directamente. La muestra no fue diseñada para ser representativa: la relevaron los participantes del concurso, comercio por comercio, en zonas del AMBA. Generalizar requiere replicar en otras ciudades.</div></div>
+  </div>
+  <div class="footer">Green Thunder · MIT LIFT Lab · Respaldo · Preguntas difíciles</div>
+</div>
+
+<!-- ============ R10 · DECISIONES METODOLÓGICAS ============ -->
+<div class="slide slide--paper" id="slide-10">
+  <span class="pill pill--lime">Respaldo · datos y decisiones</span>
+  <h2 class="slide-title" style="font-size:42px;margin-bottom:18px">Decisiones metodológicas</h2>
+  <table class="dec">
+    <thead><tr><th>Decisión</th><th>Qué hicimos</th><th>Por qué</th></tr></thead>
+    <tbody>
+      <tr><td>Muestra</td><td>814 comercios con todas las variables del modelo</td><td>Es la muestra común a los modelos centrales.</td></tr>
+      <tr><td>Variable dependiente</td><td>4 niveles autodeclarados → 3 (básico y moderado juntos)</td><td>La frontera entre ambos es difusa al responder.</td></tr>
+      <tr><td>Marco</td><td>Dos umbrales: entrada (A) y adopción alta (B)</td><td>El 97 % ya entró: la variación está en el segundo salto.</td></tr>
+      <tr><td>Estimación</td><td>Logit con errores robustos (HC1)</td><td>La variable es de sí o no; los errores siguen siendo válidos con heterocedasticidad.</td></tr>
+      <tr><td>Lectura</td><td>Efectos marginales promedio</td><td>Se leen en puntos porcentuales de probabilidad.</td></tr>
+      <tr><td>Controles</td><td>Educación y edad del titular, antigüedad, trabajadores y rubro</td><td>Comparar comercios parecidos en todo lo demás.</td></tr>
+      <tr><td>Robustez</td><td>Probit, modelo lineal, logit ordenado y multinomial; tres especificaciones</td><td>El crédito se mantiene entre 11 y 12 pp.</td></tr>
+      <tr><td>Panel</td><td>190 comercios con datos en las dos olas</td><td>Exploratorio: la participación cayó y la ventana es corta.</td></tr>
+    </tbody>
+  </table>
+  <div class="footer">Green Thunder · MIT LIFT Lab · Respaldo · Decisiones</div>
+</div>
+
+<div class="nav-ui">
+  <button class="nav-btn" id="prevBtn" aria-label="Anterior">‹</button>
+  <span class="nav-counter" id="navCounter">R1 / R10</span>
+  <button class="nav-btn" id="nextBtn" aria-label="Siguiente">›</button>
+</div>
+</div>
+
+<script>
+// Celdas del mapa: [lat, lng, comercios] por celda de ~1,5 km (solo celdas con 3+). Lo inserta armar.py.
+var MAPA = {"celdas":[[-34.822,-58.462,11],[-34.822,-58.387,8],[-34.807,-58.462,3],[-34.777,-58.432,5],[-34.777,-58.402,4],[-34.777,-58.222,3],[-34.762,-58.402,59],[-34.762,-58.387,4],[-34.762,-58.222,3],[-34.747,-58.387,5],[-34.703,-58.402,5],[-34.703,-58.297,6],[-34.642,-58.567,3],[-34.612,-58.523,11],[-34.612,-58.462,4],[-34.612,-58.417,4],[-34.612,-58.402,12],[-34.612,-58.357,6],[-34.597,-58.402,3],[-34.597,-58.387,3],[-34.582,-58.537,19],[-34.582,-58.492,9],[-34.582,-58.432,16],[-34.582,-58.402,4],[-34.567,-58.537,5],[-34.567,-58.523,7],[-34.567,-58.462,8],[-34.553,-58.552,14],[-34.538,-58.537,3],[-34.538,-58.477,5],[-34.523,-58.552,7],[-34.523,-58.537,18],[-34.523,-58.523,9],[-34.523,-58.477,5],[-34.508,-58.537,5],[-34.508,-58.492,3],[-34.462,-58.627,4]]};
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="deck.js"></script>
+</body>
+</html>
