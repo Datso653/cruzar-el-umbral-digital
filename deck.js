@@ -1,5 +1,5 @@
 /* =========================================================================
-   deck.js — motor compartido de la presentación principal y del respaldo.
+   deck.js — shared engine for the main presentation and the backup deck.
    Navegación (flechas, clic, deslizar), contadores animados, waffle, curva
    logística, mapa (solo si la página trae MAPA), notas del orador (tecla N)
    y las chispas de fondo. No depende de ninguna librería salvo Leaflet,
@@ -50,7 +50,7 @@
         if (el._tok !== tok) return;
         if (t0 === null) t0 = ts;
         var q = Math.max(0, Math.min(1, (ts - t0 - 300) / 1100));
-        el.textContent = (to * (1 - Math.pow(1 - q, 3))).toLocaleString('es-AR',
+        el.textContent = (to * (1 - Math.pow(1 - q, 3))).toLocaleString('en-US',
           { minimumFractionDigits: dec, maximumFractionDigits: dec });
         if (q < 1) requestAnimationFrame(step); else el.textContent = final;
       }
@@ -81,7 +81,7 @@
         doubleClickZoom: false, boxZoom: false, keyboard: false, touchZoom: false });
       // Esri gris claro (sin clave): CARTO empezó a pedir API key y salía con marca de agua.
       var ESRI = 'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/';
-      L.tileLayer(ESRI + 'World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', { attribution: 'Mapa © Esri', maxZoom: 16 }).addTo(mapa);
+      L.tileLayer(ESRI + 'World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', { attribution: 'Map © Esri', maxZoom: 16 }).addTo(mapa);
       L.tileLayer(ESRI + 'World_Light_Gray_Reference/MapServer/tile/{z}/{y}/{x}', { maxZoom: 16 }).addTo(mapa);
       var maxN = Math.max.apply(null, window.MAPA.celdas.map(function (c) { return c[2]; }));
       var puntos = [];
@@ -106,8 +106,8 @@
   function pintarNotas() {
     if (panel.hidden) return;
     var n = document.getElementById('slide-' + current).querySelector('.notes');
-    panel.innerHTML = '<div class="np-k">Notas · slide ' + PREFIJO + current + ' (N para ocultar)</div>' +
-      (n ? n.innerHTML : '<i>Sin notas para esta slide.</i>');
+    panel.innerHTML = '<div class="np-k">Notes · slide ' + PREFIJO + current + ' (N to hide)</div>' +
+      (n ? n.innerHTML : '<i>No notes for this slide.</i>');
   }
   function alternarNotas() { panel.hidden = !panel.hidden; pintarNotas(); }
 

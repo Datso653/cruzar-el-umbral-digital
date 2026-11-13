@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Backup material · Green Thunder · MIT LIFT Lab</title>
+<meta name="description" content="Backup material for Team Green Thunder's presentation: data, methodological decisions and tough questions.">
+<!--
+  Backup material (for the Q&A). What was taken out of the main presentation lives
+  here: map, participation and website, S-curve, reasons for not having credit, panel and
+  future work; plus the 8 tough questions and the methodological decisions requested by
+  the workshop. The map cells are inserted by armar.py.
+-->
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link rel="stylesheet" href="deck.css">
+</head>
+<body>
+<div class="deck" id="deck" tabindex="0" data-prefijo="B">
+<div class="progress"><i id="progFill"></i></div>
+<canvas id="chispas" width="1600" height="900" aria-hidden="true"></canvas>
+
+<!-- ============ B1 · CONTENTS ============ -->
+<div class="slide slide--paper active" id="slide-1">
+  <div class="blob blob--mint" style="width:360px;height:360px;right:-120px;top:-150px"></div>
+  <span class="pill pill--ink">Backup material</span>
+  <h1 class="slide-title" style="margin-top:22px">For the Q&amp;A</h1>
+  <div class="ridx">
+    <a href="#2"><b>B2</b>Where we went</a>
+    <a href="#3"><b>B3</b>Participation and the website</a>
+    <a href="#4"><b>B4</b>Why Logit and Probit?</a>
+    <a href="#5"><b>B5</b>Reasons for not having credit</a>
+    <a href="#6"><b>B6</b>The panel, six months later</a>
+    <a href="#7"><b>B7</b>Future work</a>
+    <a href="#8"><b>B8</b>Tough questions 1–4</a>
+    <a href="#9"><b>B9</b>Tough questions 5–8</a>
+    <a href="#10"><b>B10</b>Methodological decisions</a>
+  </div>
+  <a class="linkpill" href="index.html#14" style="align-self:flex-start">← Back to the presentation</a>
+  <div class="footer">Green Thunder · MIT LIFT Lab · Backup material</div>
+</div>
+
+<!-- ============ B2 · MAP ============ -->
+<div class="slide slide--paper" id="slide-2">
+  <span class="pill pill--lime">Backup · the sample</span>
+  <h2 class="slide-title" style="font-size:46px;margin-bottom:24px">Where we went</h2>
+  <div class="mapgrid">
+    <div id="mapa"></div>
+    <div class="map-side">
+      <div class="datum pop" style="--delay:.2s">
+        <div class="datum-big"><span data-count="385">385</span></div>
+        <div class="datum-txt">of the 998 stores have a <b>recorded location</b></div>
+      </div>
+      <div class="legend fade" style="--delay:.5s"><i style="width:16px;height:16px"></i> few stores</div>
+      <div class="legend fade" style="--delay:.6s"><i style="width:44px;height:44px"></i> many stores</div>
+      <p class="slide-note fade" style="--delay:.7s;margin-top:0"><b>What does location add?</b> It shows where the sample comes from: it is concentrated around the City of Buenos Aires and in the southern suburbs. It is not representative of all of Greater Buenos Aires.</p>
+      <p class="slide-note fade" style="--delay:.8s;margin-top:0;font-size:16px">Cells of ~1.5 km; only cells with 3 or more stores are shown, so no one can be identified.</p>
+    </div>
+  </div>
+  <div class="footer">Green Thunder · MIT LIFT Lab · Backup · Map</div>
+</div>
+
+<!-- ============ B3 · PARTICIPATION (cycle) ============ -->
+<div class="slide slide--forest" id="slide-3">
+  <div class="cols" style="grid-template-columns:1fr 640px">
+    <div>
+      <span class="pill pill--lime">Backup · fieldwork</span>
+      <h2 class="slide-title" style="margin-top:24px">Participation<br>fell month by month</h2>
+      <p class="lede fade" style="--delay:.3s;color:#D7E8DE">Losing participants limits what can be concluded from the follow-up. Many shopkeepers were wary of what we were using their data for.</p>
+      <p class="lede fade" style="--delay:.5s;margin-top:22px">We built a <b style="color:var(--lime)">website that gives them back the results</b> in plain language: a form of reciprocity that works for future editions.</p>
+    </div>
+    <svg viewBox="0 0 620 560" width="100%" style="overflow:visible">
+      <defs><marker id="flecha" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+        <path d="M0,0 L10,5 L0,10 z" fill="#C9F24D"/></marker></defs>
+      <circle cx="310" cy="280" r="210" fill="none" stroke="#2C5A47" stroke-width="2" stroke-dasharray="4 8"/>
+      <path class="draw" pathLength="1" style="--delay:.5s;--dur:.6s" d="M408.6,94.6 A210,210 0 0 1 495.4,181.4" fill="none" stroke="#C9F24D" stroke-width="5" marker-end="url(#flecha)"/>
+      <path class="draw" pathLength="1" style="--delay:1s;--dur:.6s" d="M495.4,378.6 A210,210 0 0 1 408.6,465.4" fill="none" stroke="#C9F24D" stroke-width="5" marker-end="url(#flecha)"/>
+      <path class="draw" pathLength="1" style="--delay:1.5s;--dur:.6s" d="M211.4,465.4 A210,210 0 0 1 124.6,378.6" fill="none" stroke="#C9F24D" stroke-width="5" marker-end="url(#flecha)"/>
+      <path class="draw" pathLength="1" style="--delay:2s;--dur:.6s" d="M124.6,181.4 A210,210 0 0 1 211.4,94.6" fill="none" stroke="#C9F24D" stroke-width="5" marker-end="url(#flecha)"/>
+      <circle r="9" fill="#C9F24D"><animateMotion dur="7s" repeatCount="indefinite" path="M310,70 A210,210 0 1,1 309.9,70"/></circle>
+      <g class="node" style="--delay:2.1s"><circle cx="310" cy="280" r="74" fill="#C9F24D" stroke="#14201A" stroke-width="3"/>
+        <text x="310" y="276" text-anchor="middle" font-size="22" font-weight="700" fill="#14201A">reci-</text>
+        <text x="310" y="302" text-anchor="middle" font-size="22" font-weight="700" fill="#14201A">procity</text></g>
+      <g text-anchor="middle" font-size="21" font-weight="700">
+        <g class="node" style="--delay:.2s"><rect x="205" y="32" width="210" height="76" rx="14" fill="#FFFFFF" stroke="#14201A" stroke-width="2.5"/>
+          <text x="310" y="64" fill="#14201A">Monthly</text><text x="310" y="90" fill="#14201A">survey</text></g>
+        <g class="node" style="--delay:.75s"><rect x="410" y="242" width="220" height="76" rx="14" fill="#F0A8B4" stroke="#14201A" stroke-width="2.5"/>
+          <text x="520" y="274" fill="#14201A">Participation</text><text x="520" y="300" fill="#14201A">drops</text></g>
+        <g class="node" style="--delay:1.25s"><rect x="200" y="452" width="220" height="76" rx="14" fill="#FFFFFF" stroke="#14201A" stroke-width="2.5"/>
+          <text x="310" y="484" fill="#14201A">What do they do</text><text x="310" y="510" fill="#14201A">with my data?</text></g>
+        <g class="node" style="--delay:1.75s"><rect x="-15" y="242" width="230" height="76" rx="14" fill="#C9F24D" stroke="#14201A" stroke-width="2.5"/>
+          <text x="100" y="274" fill="#14201A">Website that gives</text><text x="100" y="300" fill="#14201A">back the results</text></g>
+      </g>
+    </svg>
+  </div>
+  <div class="footer">Green Thunder · MIT LIFT Lab · Backup · Participation</div>
+</div>
+
+<!-- ============ B4 · WHY LOGIT AND PROBIT (S-curve) ============ -->
+<div class="slide slide--paper" id="slide-4">
+  <span class="pill pill--lime">Backup · the method</span>
+  <h2 class="slide-title" style="font-size:46px">Why Logit and Probit?</h2>
+  <div class="cols" style="grid-template-columns:1fr 470px;gap:50px">
+    <svg viewBox="0 0 760 470" width="100%" style="overflow:visible">
+      <line x1="70" y1="410" x2="730" y2="410" stroke="#14201A" stroke-width="2.5"/>
+      <line x1="70" y1="410" x2="70" y2="50" stroke="#14201A" stroke-width="2.5"/>
+      <text x="58" y="74" text-anchor="end" font-size="17" fill="#66736B">100%</text>
+      <text x="58" y="414" text-anchor="end" font-size="17" fill="#66736B">0%</text>
+      <line x1="70" y1="70" x2="730" y2="70" stroke="#C9D3C4" stroke-width="1.5" stroke-dasharray="5 6"/>
+      <text x="400" y="452" text-anchor="middle" font-size="18" fill="#66736B">store characteristics →</text>
+      <text transform="translate(26 240) rotate(-90)" text-anchor="middle" font-size="18" fill="#66736B">probability of high adoption</text>
+      <path id="curvaS" class="draw" pathLength="1" style="--delay:.2s;--dur:1.6s" fill="none" stroke="#14201A" stroke-width="5" stroke-linecap="round" d=""/>
+      <g class="node" style="--delay:1.4s"><circle cx="323.7" cy="343.7" r="13" fill="#FFFFFF" stroke="#14201A" stroke-width="3"/>
+        <text x="342" y="392" font-size="20" font-weight="700" fill="#14201A">without credit</text></g>
+      <g class="node" style="--delay:1.6s"><circle cx="368.9" cy="305.6" r="13" fill="#C9F24D" stroke="#14201A" stroke-width="3"/>
+        <text x="352" y="276" text-anchor="end" font-size="20" font-weight="700" fill="#14201A">with credit</text></g>
+      <g class="fade" style="--delay:1.85s">
+        <path d="M398,305.6 L410,305.6 L410,343.7 L398,343.7" fill="none" stroke="#14201A" stroke-width="2.5"/>
+        <rect x="422" y="300" width="118" height="50" rx="12" fill="#C9F24D" stroke="#14201A" stroke-width="2.5"/>
+        <text x="481" y="334" text-anchor="middle" font-size="27" font-weight="700" fill="#14201A">+11 pp</text></g>
+    </svg>
+    <div style="display:flex;flex-direction:column;gap:18px">
+      <div class="card pop" style="--delay:.3s;padding:24px 26px"><div class="card-k">The question</div><div class="card-title" style="font-size:25px">It's yes or no</div>
+        <div class="card-body" style="font-size:19px">Did the store reach high adoption, or not?</div></div>
+      <div class="card card--lime pop" style="--delay:.5s;padding:24px 26px"><div class="card-k">The S-curve</div><div class="card-title" style="font-size:25px">It bounds the probability</div>
+        <div class="card-body" style="font-size:19px">It never goes below 0 or above 100%, which the linear model doesn't guarantee.</div></div>
+      <div class="card pop" style="--delay:.7s;padding:24px 26px"><div class="card-k">Check</div><div class="card-title" style="font-size:25px">The linear model gives the same result</div>
+        <div class="card-body" style="font-size:19px">We estimated it anyway: credit is still positive and significant.</div></div>
+    </div>
+  </div>
+  <div class="footer">Green Thunder · MIT LIFT Lab · Backup · Method</div>
+</div>
+
+<!-- ============ B5 · REASONS FOR NOT HAVING CREDIT (secondary evidence) ============ -->
+<div class="slide slide--paper" id="slide-5">
+  <span class="pill pill--lime">Backup · secondary evidence</span>
+  <h2 class="slide-title" style="font-size:42px">High adoption by the reason<br>for not having bank credit</h2>
+  <div class="center-block">
+    <div class="bars" style="gap:38px">
+      <div class="bar-row" style="grid-template-columns:360px 1fr 130px"><div class="bar-lab">“I don’t need it”<small>492 stores</small></div>
+        <div class="bar-track" style="height:62px"><span class="bar-fill" style="--w:96.5%;--delay:.3s"></span></div><div class="bar-val">19.3%</div></div>
+      <div class="bar-row" style="grid-template-columns:360px 1fr 130px"><div class="bar-lab">“Interest rates are too high”<small>179 stores</small></div>
+        <div class="bar-track" style="height:62px"><span class="bar-fill bar-fill--mint" style="--w:77%;--delay:.5s"></span></div><div class="bar-val">15.4%</div></div>
+      <div class="bar-row" style="grid-template-columns:360px 1fr 130px"><div class="bar-lab">Rejection, collateral or paperwork<small>86 stores</small></div>
+        <div class="bar-track" style="height:62px"><span class="bar-fill bar-fill--gray" style="--w:59%;--delay:.7s"></span></div><div class="bar-val">11.8%</div></div>
+    </div>
+  </div>
+  <div class="strip fade" style="--delay:1s"><b>How to read it:</b> it describes the stated reasons and each group's adoption. The percentages alone don't prove that barriers to credit cause lower adoption.</div>
+  <div class="footer">Green Thunder · MIT LIFT Lab · Backup · Reasons</div>
+</div>
+
+<!-- ============ B6 · THE PANEL (flows) ============ -->
+<div class="slide slide--paper" id="slide-6">
+  <span class="pill pill--lime">Backup · exploratory · 190 stores</span>
+  <h2 class="slide-title" style="font-size:46px">The panel, six months later</h2>
+  <div class="cols" style="grid-template-columns:1fr 430px;gap:40px">
+    <svg viewBox="0 0 780 500" width="100%" style="overflow:visible">
+      <text x="162" y="30" text-anchor="middle" font-size="17" font-weight="700" fill="#66736B" letter-spacing="1.5">OCTOBER 2025</text>
+      <text x="618" y="30" text-anchor="middle" font-size="17" font-weight="700" fill="#66736B" letter-spacing="1.5">LAST MONTH</text>
+      <g fill="none" stroke-linecap="butt">
+        <path class="draw" pathLength="1" style="--delay:.4s;--dur:1.3s" d="M174,221 C390,221 390,219 606,219" stroke="#B9C3B4" stroke-opacity=".75" stroke-width="254"/>
+        <path class="draw" pathLength="1" style="--delay:.55s;--dur:1.3s" d="M174,458 C390,458 390,456 606,456" stroke="#B9C3B4" stroke-opacity=".75" stroke-width="60"/>
+        <path class="draw" pathLength="1" style="--delay:.9s;--dur:1.3s" d="M174,360 C390,360 390,414 606,414" stroke="#C9F24D" stroke-width="24"/>
+        <path class="draw" pathLength="1" style="--delay:1s;--dur:1.3s" d="M174,56 C390,56 390,90 606,90" stroke="#C9F24D" stroke-width="4"/>
+        <path class="draw" pathLength="1" style="--delay:1.1s;--dur:1.3s" d="M174,413 C390,413 390,361 606,361" stroke="#F0A8B4" stroke-opacity=".95" stroke-width="30"/>
+        <path class="draw" pathLength="1" style="--delay:1.2s;--dur:1.3s" d="M174,90 C390,90 390,58 606,58" stroke="#F0A8B4" stroke-opacity=".95" stroke-width="8"/>
+      </g>
+      <g stroke="#14201A" stroke-width="2">
+        <rect class="rise" style="--delay:.1s" x="150" y="52" width="24" height="8" fill="#FFFFFF"/>
+        <rect class="rise" style="--delay:.15s" x="150" y="86" width="24" height="286" fill="#9ED9B9"/>
+        <rect class="rise" style="--delay:.2s" x="150" y="398" width="24" height="90" fill="#10382A"/>
+        <rect class="rise" style="--delay:.1s" x="606" y="54" width="24" height="8" fill="#FFFFFF"/>
+        <rect class="rise" style="--delay:.15s" x="606" y="88" width="24" height="288" fill="#9ED9B9"/>
+        <rect class="rise" style="--delay:.2s" x="606" y="402" width="24" height="84" fill="#10382A"/>
+      </g>
+      <g font-size="19" font-weight="700" fill="#14201A">
+        <text x="138" y="62" text-anchor="end">None · 2</text><text x="138" y="236" text-anchor="end">Intermediate · 143</text><text x="138" y="450" text-anchor="end">High · 45</text>
+        <text x="642" y="64">None · 4</text><text x="642" y="238">Intermediate · 144</text><text x="642" y="450">High · 42</text>
+      </g>
+    </svg>
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <div class="legend pop" style="--delay:.9s;font-size:22px"><i style="width:28px;height:28px;border-radius:6px;background:#B9C3B4"></i><b><span data-count="157">157</span></b>&nbsp;stayed the same</div>
+      <div class="legend pop" style="--delay:1s;font-size:22px"><i style="width:28px;height:28px;border-radius:6px;background:var(--lime)"></i><b><span data-count="14">14</span></b>&nbsp;moved up</div>
+      <div class="legend pop" style="--delay:1.1s;font-size:22px"><i style="width:28px;height:28px;border-radius:6px;background:var(--pink)"></i><b><span data-count="19">19</span></b>&nbsp;moved down</div>
+      <div class="card pop" style="--delay:1.5s;padding:22px 24px;margin-top:14px;gap:10px">
+        <span class="pill pill--red">Hypothesis · small groups</span>
+        <div class="card-body" style="font-size:19px"><b>Who stayed at the top?</b> Of those already at the high level, <b>8 of 8</b> with credit stayed there, versus <b>22 of 37</b> without credit. With so few cases, we can't claim it.</div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">Green Thunder · MIT LIFT Lab · Backup · Panel</div>
+</div>
+
+<!-- ============ B7 · FUTURE WORK ============ -->
+<div class="slide slide--paper" id="slide-7">
+  <span class="pill pill--lime">Backup · future work</span>
+  <h2 class="slide-title" style="font-size:46px">What we would add to the survey</h2>
+  <div class="center-block">
+    <svg viewBox="0 0 1340 300" width="100%" style="overflow:visible">
+      <line class="draw" pathLength="1" x1="140" y1="100" x2="1200" y2="100" stroke="#14201A" stroke-width="4" stroke-linecap="round"/>
+      <g text-anchor="middle">
+        <g class="node" style="--delay:.4s"><circle cx="140" cy="100" r="46" fill="#C9F24D" stroke="#14201A" stroke-width="3.5"/><text x="140" y="114" font-size="36" font-weight="700" fill="#14201A">AI</text>
+          <text x="140" y="192" font-size="27" font-weight="700" fill="#14201A">Measure AI</text><text x="140" y="228" font-size="20" fill="#66736B">as its own category,</text><text x="140" y="254" font-size="20" fill="#66736B">with a stage-based scale</text></g>
+        <g class="node" style="--delay:.65s"><circle cx="493" cy="100" r="46" fill="#FFFFFF" stroke="#14201A" stroke-width="3.5"/><text x="493" y="114" font-size="36" font-weight="700" fill="#14201A">2</text>
+          <text x="493" y="192" font-size="27" font-weight="700" fill="#14201A">Know the customer</text><text x="493" y="228" font-size="20" fill="#66736B">without demand, not adopting</text><text x="493" y="254" font-size="20" fill="#66736B">isn't a problem</text></g>
+        <g class="node" style="--delay:.9s"><circle cx="846" cy="100" r="46" fill="#9ED9B9" stroke="#14201A" stroke-width="3.5"/><text x="846" y="114" font-size="36" font-weight="700" fill="#14201A">3</text>
+          <text x="846" y="192" font-size="27" font-weight="700" fill="#14201A">Longer panel</text><text x="846" y="228" font-size="20" fill="#66736B">technology moves</text><text x="846" y="254" font-size="20" fill="#66736B">over more than six months</text></g>
+        <g class="node" style="--delay:1.15s"><circle cx="1200" cy="100" r="46" fill="#10382A" stroke="#14201A" stroke-width="3.5"/><text x="1200" y="114" font-size="36" font-weight="700" fill="#C9F24D">4</text>
+          <text x="1200" y="192" font-size="27" font-weight="700" fill="#14201A">Locate everyone</text><text x="1200" y="228" font-size="20" fill="#66736B">today: 385 of 998</text><text x="1200" y="254" font-size="20" fill="#66736B">stores</text></g>
+      </g>
+    </svg>
+  </div>
+  <div class="footer">Green Thunder · MIT LIFT Lab · Backup · Future work</div>
+</div>
+
+<!-- ============ B8 · TOUGH QUESTIONS 1–4 ============ -->
+<div class="slide slide--paper" id="slide-8">
+  <span class="pill pill--lime">Backup · tough questions</span>
+  <h2 class="slide-title" style="font-size:42px;margin-bottom:18px">What we might be asked (1 of 2)</h2>
+  <div class="qq">
+    <div class="card pop" style="--delay:.1s"><div class="qq-q"><i>1</i>Does credit cause adoption?</div>
+      <div class="qq-a">We can't claim that. With observational data we measure association: we compare similar stores, but there may be factors we don't see, such as the owner's management. We tried an instrument and fixed effects, and neither allowed us to identify causality.</div></div>
+    <div class="card pop" style="--delay:.2s"><div class="qq-q"><i>2</i>Couldn't it be the other way around?</div>
+      <div class="qq-a">It's plausible: a store with digital payments has recorded sales and finds it easier to get bank credit. That's why we talk about association and not about the effect of credit.</div></div>
+    <div class="card pop" style="--delay:.3s"><div class="qq-q"><i>3</i>Why Logit and Probit and not a linear model?</div>
+      <div class="qq-a">The variable is yes or no. The linear model can predict probabilities below 0 or above 100%; Logit and Probit can't. We estimated it anyway as a check, and it gives the same sign and significance.</div></div>
+    <div class="card pop" style="--delay:.4s"><div class="qq-q"><i>4</i>Does the result depend on the controls?</div>
+      <div class="qq-a">No. The credit effect stays between 11 and 12 points with different controls, and it holds with Probit, the linear model, and ordered and multinomial logit.</div></div>
+  </div>
+  <div class="footer">Green Thunder · MIT LIFT Lab · Backup · Tough questions</div>
+</div>
+
+<!-- ============ B9 · TOUGH QUESTIONS 5–8 ============ -->
+<div class="slide slide--paper" id="slide-9">
+  <span class="pill pill--lime">Backup · tough questions</span>
+  <h2 class="slide-title" style="font-size:42px;margin-bottom:18px">What we might be asked (2 of 2)</h2>
+  <div class="qq">
+    <div class="card pop" style="--delay:.1s"><div class="qq-q"><i>5</i>Why did you group basic and moderate?</div>
+      <div class="qq-a">Because it's a self-classification and the boundary between the two is blurry for whoever answers. Grouping them reduces measurement error, and the margin we care about is reaching the high level.</div></div>
+    <div class="card pop" style="--delay:.2s"><div class="qq-q"><i>6</i>Can self-reported technology be trusted?</div>
+      <div class="qq-a">It's a limitation: there may be over- or under-reporting. We narrowed it with levels defined by concrete examples (QR, point of sale, inventory) and we state it explicitly.</div></div>
+    <div class="card pop" style="--delay:.3s"><div class="qq-q"><i>7</i>What about the stores that stopped responding?</div>
+      <div class="qq-a">Participation fell month by month, so the 190 stores in the panel aren't a random sample of the 998. That's why the analysis over time is exploratory and supports no central conclusion.</div></div>
+    <div class="card pop" style="--delay:.4s"><div class="qq-q"><i>8</i>Can it be generalized?</div>
+      <div class="qq-a">Not directly. The sample wasn't designed to be representative: contest participants surveyed it store by store, in areas of Greater Buenos Aires. Generalizing requires replicating it in other cities.</div></div>
+  </div>
+  <div class="footer">Green Thunder · MIT LIFT Lab · Backup · Tough questions</div>
+</div>
+
+<!-- ============ B10 · METHODOLOGICAL DECISIONS ============ -->
+<div class="slide slide--paper" id="slide-10">
+  <span class="pill pill--lime">Backup · data and decisions</span>
+  <h2 class="slide-title" style="font-size:42px;margin-bottom:18px">Methodological decisions</h2>
+  <table class="dec">
+    <thead><tr><th>Decision</th><th>What we did</th><th>Why</th></tr></thead>
+    <tbody>
+      <tr><td>Sample</td><td>814 stores with all the model's variables</td><td>It's the sample common to the core models.</td></tr>
+      <tr><td>Dependent variable</td><td>4 self-reported levels → 3 (basic and moderate grouped)</td><td>The boundary between the two is blurry when answering.</td></tr>
+      <tr><td>Framework</td><td>Two thresholds: entry (A) and high adoption (B)</td><td>97% are already in: the variation is in the second leap.</td></tr>
+      <tr><td>Estimation</td><td>Logit with robust errors (HC1)</td><td>The variable is yes or no; the errors remain valid under heteroskedasticity.</td></tr>
+      <tr><td>Reading</td><td>Average marginal effects</td><td>They read as percentage points of probability.</td></tr>
+      <tr><td>Controls</td><td>Owner's education and age, store age, workers and sector</td><td>To compare stores that are alike in everything else.</td></tr>
+      <tr><td>Robustness</td><td>Probit, linear model, ordered and multinomial logit; three specifications</td><td>Credit stays between 11 and 12 pp.</td></tr>
+      <tr><td>Panel</td><td>190 stores with data in both waves</td><td>Exploratory: participation fell and the window is short.</td></tr>
+    </tbody>
+  </table>
+  <div class="footer">Green Thunder · MIT LIFT Lab · Backup · Decisions</div>
+</div>
+
+<div class="nav-ui">
+  <button class="nav-btn" id="prevBtn" aria-label="Previous">‹</button>
+  <span class="nav-counter" id="navCounter">B1 / B10</span>
+  <button class="nav-btn" id="nextBtn" aria-label="Next">›</button>
+</div>
+</div>
+
+<script>
+// Map cells: [lat, lng, stores] per ~1.5 km cell (only cells with 3+). Inserted by armar.py.
+var MAPA = {"celdas":[[-34.822,-58.462,11],[-34.822,-58.387,8],[-34.807,-58.462,3],[-34.777,-58.432,5],[-34.777,-58.402,4],[-34.777,-58.222,3],[-34.762,-58.402,59],[-34.762,-58.387,4],[-34.762,-58.222,3],[-34.747,-58.387,5],[-34.703,-58.402,5],[-34.703,-58.297,6],[-34.642,-58.567,3],[-34.612,-58.523,11],[-34.612,-58.462,4],[-34.612,-58.417,4],[-34.612,-58.402,12],[-34.612,-58.357,6],[-34.597,-58.402,3],[-34.597,-58.387,3],[-34.582,-58.537,19],[-34.582,-58.492,9],[-34.582,-58.432,16],[-34.582,-58.402,4],[-34.567,-58.537,5],[-34.567,-58.523,7],[-34.567,-58.462,8],[-34.553,-58.552,14],[-34.538,-58.537,3],[-34.538,-58.477,5],[-34.523,-58.552,7],[-34.523,-58.537,18],[-34.523,-58.523,9],[-34.523,-58.477,5],[-34.508,-58.537,5],[-34.508,-58.492,3],[-34.462,-58.627,4]]};
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="deck.js"></script>
+</body>
+</html>

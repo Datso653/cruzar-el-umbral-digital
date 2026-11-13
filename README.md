@@ -1,11 +1,11 @@
 # ¿Tener crédito alcanza para cruzar el umbral digital?
 
-Presentación final del **Equipo Green Thunder** para el **MIT LIFT Lab Research Fest** (5 de noviembre de 2026).
+Presentación final (en inglés) del **Equipo Green Thunder** para el **MIT LIFT Lab Research Fest** (5 de noviembre de 2026).
 
 **Crédito, educación y ciclo de vida en la adopción tecnológica de nano-comercios del AMBA**
 
 - 👉 **Presentación:** https://datso653.github.io/cruzar-el-umbral-digital/
-- 📎 **Material de respaldo** (mapa, panel, preguntas difíciles, decisiones metodológicas): https://datso653.github.io/cruzar-el-umbral-digital/respaldo.html
+- 📎 **Material de respaldo / Backup** (mapa, panel, preguntas difíciles, decisiones metodológicas): https://datso653.github.io/cruzar-el-umbral-digital/backup.html
 
 Se navega con las flechas del teclado, haciendo clic o deslizando en el celular.
 La tecla **N** muestra las notas del orador (guion de unos 3 minutos para el ensayo); conviene tenerla apagada al proyectar.
